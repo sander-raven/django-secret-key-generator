@@ -3,7 +3,8 @@ import sys
 import environ
 from django.conf import settings
 from django.core.management import execute_from_command_line
-from django.core.management.utils import get_random_secret_key  
+from django.core.management.utils import get_random_secret_key
+from django.core.wsgi import get_wsgi_application
 from django.http import HttpResponse
 from django.urls import path
 
@@ -31,6 +32,8 @@ def index(request):
 urlpatterns = [
     path("", index),
 ]
+
+application = get_wsgi_application()
 
 
 if __name__ == "__main__":
